@@ -5,15 +5,10 @@ define(['lib/ajax'],function(Ajax){
         this.audioUrl = ret[0].audioUrl || '';
         this.cover = ret[0].cover || '';
         this.bgimg = ret[0].bgimg || ''; 
+        this.lyric = ret[0].lyric || ''; 
         this.audioNode = document.createElement('audio');
         this.audioNode.setAttribute('src',this.audioUrl);
-        var self = this;
-        Ajax.on({
-            url: './lyrric.json',
-            success: function(ret){
-                self.parseLrc(ret[0])
-            }
-        })
+        this.parseLrc(this.lyric);
     }
     PlaySong.prototype = {
         parseLrc: function(ret){

@@ -53,7 +53,7 @@ define(['jquery','song','lib/ajax','playSong'],function($,arr,Ajax,PlaySong){
     // }]);
     songPS.on('getSong',[function(){
         Ajax.on({
-            url: '../../lyrric.json',
+            url: './lyrric.json',
             success: function(ret){
                 p1 = new PlaySong(ret)
             }
