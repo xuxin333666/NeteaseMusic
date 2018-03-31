@@ -72,6 +72,7 @@ body {
 .disc {
     animation-Play-State: running;
     position: absolute;  
+    align-self: center;
     animation: circle 20s infinite linear; 
 }
 .disc.pan,
