@@ -62,7 +62,7 @@ define(['jquery','song','lib/ajax','playSong'],function($,arr,Ajax,PlaySong){
     songPS.on('play',[
         function(){
         disc.forEach(function(value){
-            value.style.animationPlayState="running"
+            value.classList.remove('pause')
         })
         },
         function(){
@@ -81,7 +81,7 @@ define(['jquery','song','lib/ajax','playSong'],function($,arr,Ajax,PlaySong){
         },
         function(){
             disc.forEach(function(value){
-                value.style.animationPlayState="paused"
+                value.classList.add('pause');
             })
         },
         function(){

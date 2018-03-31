@@ -60,15 +60,19 @@ body {
     top: -2vh;
 }
 .discContainer {
+    position: relative;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center; 
 }
+.disc.pause {
+    animation-Play-State: paused;
+}
 .disc {
+    animation-Play-State: running;
     position: absolute;  
     animation: circle 20s infinite linear; 
-    animation-Play-State: paused;
 }
 .disc.pan,
 .disc.underlying,
