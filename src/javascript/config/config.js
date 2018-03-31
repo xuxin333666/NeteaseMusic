@@ -5,4 +5,4 @@ requirejs.config({
         'lib': '../lib'
     }
 })
-requirejs(['./src/JavaScript/component/index.js'])
+requirejs(['./src/JavaScript/index.js'])
