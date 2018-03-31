@@ -1,11 +1,12 @@
 define(['lib/ajax'],function(Ajax){
-    function PlaySong(ret){
-        this.title = ret[0].title || '无题';
-        this.author = ret[0].author || '网络歌手';
-        this.audioUrl = ret[0].audioUrl || '';
-        this.cover = ret[0].cover || '';
-        this.bgimg = ret[0].bgimg || ''; 
-        this.lyric = ret[0].lyric || ''; 
+    function PlaySong(ret,id){
+        this.id = id || 1;
+        this.title = ret[this.id].title || '无题';
+        this.author = ret[this.id].author || '网络歌手';
+        this.audioUrl = ret[this.id].audioUrl || '';
+        this.cover = ret[this.id].cover || '';
+        this.bgimg = ret[this.id].bgimg || ''; 
+        this.lyric = ret[this.id].lyric || ''; 
         this.audioNode = document.createElement('audio');
         this.audioNode.setAttribute('src',this.audioUrl);
         this.parseLrc(this.lyric);
