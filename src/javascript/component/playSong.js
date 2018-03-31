@@ -13,7 +13,7 @@ define(['lib/ajax'],function(Ajax){
     PlaySong.prototype = {
         parseLrc: function(ret){
             var self = this;
-            this.lrcArr = ret.lyric.split('↵')
+            this.lrcArr = ret.split('↵')
             this.reg = /^\[(.+)\](.*)$/;
             this.arr = this.lrcArr.map(function(value){
                 var lrcObj = {};
