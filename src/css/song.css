@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    color: #ccc;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@keyframes circle {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#logo {
+    position: absolute;
+    margin: 3vw;
+    width: 30vw;
+    z-index: 1;
+}
+html,body {
+    width: 100vw;
+    height: 100vh;
+}
+body {
+    background: url('../img/bgimg.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top center;
+}
+.wrapper {
+    position: relative;
+    height: 200vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+}
+.pointer {
+    width: 25vw;
+    position: absolute;
+    left: 45.5vw;
+    z-index: 1;
+}
+.pointer.pause {
+    transform: rotate(-20deg);
+    transform-origin: top;
+    top: -2vh;
+}
+.discContainer {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.disc {
+    position: absolute;  
+    animation: circle 20s infinite linear; 
+    animation-Play-State: paused;
+}
+.disc.pan,
+.disc.underlying,
+.disc.light {
+    width: 70vw;
+}
+.disc.cover {
+    border-radius: 50%;
+    width: 45vw;
+}
+.discContainer>.underlying {
+    position: unset;
+    opacity: 0;
+}
+.start.disc {
+    width: 15vw;
+    height: 8vh;
+    background: url('../img/start.png') no-repeat;
+    background-size: contain;
+    animation: unset;
+    display: none;
+}
+.start.disc.pause {
+    display: block;
+}
+.main {
+    margin-top: 5vh;
+    width: 80vw;
+    height: 25vh;
+    text-align: center;
+    overflow: hidden;
+}
+.songName {
+    margin-bottom: 2vh;
+    font-weight: unset;
+    color: white;
+}
+.author {
+    font-size: 16px;
+}
+.lyrics {
+    margin: 1.5vh 0;
+}
+.loadMoreCt {
+    width: 5vw;
+    height: 2vh;
+    margin-top: 12vh;
+    overflow: hidden;
+}
+.loadMoreCt>.loadMore {
+    width: 5vw;
+    height: 8vh;
+}
+.otherLink {
+    margin-top: 12vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.otherLink>.otherplaylist,
+.otherMusic {
+    box-sizing: border-box;
+    width: 100vw;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: unset;
+}
+.otherLink>li {
+    width: 31.5vw;
+}
+.otherLink>li>img {
+    width: 100%;
+}
+.otherMusicCt>li>h4,
+.otherMusicCt>li>p,
+.otherLink>li>h5,
+.otherLink>li>p {
+    font-weight: unset;
+    padding: 2px 5px;
+    color: white;
+}
+.otherMusicCt>li>h4 {
+    font-size: 15px;
+}
+.wrapper .otherLink>li>p {
+    font-size: 12px;
+    color: #ccc;
+}
+.otherMusicCt {
+    margin-top: 6vh;
+}
+.otherMusicCt>li {
+    padding: 5px;
+    border-bottom: 1px solid rgb(114, 96, 73);
+}
+.otherMusicCt>li>img {
+    width: 13vw;
+    float: left;
+}
+.otherMusicCt>li>h4,
+.otherMusicCt>li>p {
+    margin-left: 15vw;
+}
+.otherMusicCt>li>p {
+    font-size: 14px;
+    color: #ccc;
+}
+.otherMusicCt>li>.playOther {
+    margin: 11px 5px;
+    float: right;
+    width: 8vw;
+    height: 4vh;
+    background: url('../img/start.png') no-repeat;
+    background-size: contain;
+}
+.btnct {
+    width: 100vw;
+    padding: 0.8vh 0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    background: url('../img/bgimg.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom center;
+}
+.btn {
+    padding: 1.3vh 3.8vw;
+    border-radius: 100px;
+    display: inline-block;
+    width: 35vw;
+    border: 1px solid #d33a31;
+    font-size: 17px;
+    margin: 1.5vw;
+}
+.btn.open {
+    color: #d33a31;
+}
+.btn.download {
+    background: #d33a31;
+    color: white;
+}
