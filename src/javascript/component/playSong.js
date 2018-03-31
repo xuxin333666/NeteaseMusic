@@ -9,7 +9,7 @@ define(['lib/ajax'],function(Ajax){
         this.audioNode.setAttribute('src',this.audioUrl);
         var self = this;
         Ajax.on({
-            url: '../../../lyrric.json',
+            url: './../../../lyrric.json',
             success: function(ret){
                 self.parseLrc(ret[0])
             }
