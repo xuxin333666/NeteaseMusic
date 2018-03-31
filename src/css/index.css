@@ -15,6 +15,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+html,body {
+    overflow-x: hidden;
+}
 a {
     display: block;
 }
@@ -25,7 +28,7 @@ a.button {
 }
 h3.title {
     width: 100%;
-    font-size: 4.45vw;
+    font-size: 4.5vw;
     line-height: 1;
     margin: 4.5vw 2.5vw;
 }
@@ -93,3 +96,60 @@ header>.button {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.latestCt>.latest {
+    position: relative;
+    font-size: 4.5vw;
+    padding: 1vw 2.77vw;
+    border-bottom: 0.27vw solid #f1f1f2;
+}
+.latestCt>.latest>.describe {
+    display: -webkit-flex;
+    align-items: center;
+    margin-right: 15vw;
+    line-height: 6vw;
+    font-size: 3.2vw;
+    color: #888;
+}
+.latestCt>.latest>.describe>.SQ {
+    display: block;
+    margin-top: 0.5vw;
+    width: 5vw;
+    height: 2.5vw;
+    background: url('../img/SQ.png') no-repeat;
+    background-size: contain;
+}
+.latestCt>.latest>.play {
+    width: 6vw;
+    height: 6vw;
+    background: url('../img/start.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+footer {
+    text-align: center;
+    background: url('../img/index-bg.png') no-repeat;
+    background-size: cover;
+}
+footer>.logosvg {
+    width: 61.33vw;
+    height: 11.74vw;
+    margin-top: 18vw;
+}
+footer>.button {
+    margin-top: 3.5vw;
+    padding: 2.2vw 12vw;
+    display: inline-block;
+    border: 0.27vw solid #d33a31;
+    color: #d33a31;
+}
+footer>.copyright {
+    margin-top: 1.5vw;
+    padding-bottom: 4vw;
+    font-size: 3.2vw;
+    color: #888;
+
+}
+
