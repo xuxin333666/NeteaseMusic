@@ -116,7 +116,6 @@ body {
     width: 80vw;
     height: 25vh;
     text-align: center;
-    overflow: hidden;
 }
 .songName {
     margin-bottom: 2vh;
@@ -128,14 +127,14 @@ body {
 }
 .lyricsWindow {
     overflow: hidden;
-    height: 125px;
+    height: 145px;
 }
 .lyricsCt {
-    transform: translateY(-1px);
+    transform: translateY(-.1px);
     transition: all .3s;
 }
 .lyrics {
-    margin: 1.5vh 0;
+    line-height: 36px;
 }
 .lyrics.action {
     color: white;

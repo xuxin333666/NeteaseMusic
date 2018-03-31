@@ -17,7 +17,7 @@ define(['lib/ajax'],function(Ajax){
             this.reg = /^\[(.+)\](.*)$/;
             this.arr = this.lrcArr.map(function(value){
                 var lrcObj = {};
-                if( self.reg.exec(value)!==null){
+                if( self.reg.exec(value)!== null){
                     lrcObj= {
                         time: self.reg.exec(value)[1],
                         words: self.reg.exec(value)[2]
@@ -34,7 +34,8 @@ define(['lib/ajax'],function(Ajax){
         },
         render: function(arr){
             var lyricsCt = document.querySelector('.lyricsCt');
-            var title = document.querySelector('.songName')
+            var title = document.querySelector('.songName');
+            document.querySelector('.cover').setAttribute('src',this.cover);
             title.innerHTML = this.title + `- <span class="author">${this.author}</span>`;
             for (let i = 0; i < arr.length; i++) {
                 var lrcP = document.createElement('p');
@@ -68,16 +69,22 @@ define(['lib/ajax'],function(Ajax){
                     break;  
                 }
             }
-            for (let i = 0; i < self.lyrics.length; i++) {
-                self.lyrics[i].classList.remove('action');                   
+            if(lyricsNow ){
+                for (let i = 0; i < self.lyrics.length; i++) {
+                    self.lyrics[i].classList.remove('action');                   
+                }
+                lyricsNow.classList.add('action');
+                self.lyricsScroll(lyricsNow);
             }
-            lyricsNow.classList.add('action');
-            self.lyricsScroll(lyricsNow);
+            
         },
         lyricsScroll: function(now){
             var distance = now.offsetTop-(this.lyrics[1].offsetTop - this.lyrics[0].offsetTop);
             if(distance > 0){
                 this.lyricsCt.style.transform = `translateY(-${distance}px)`
+            }else{
+                this.lyricsCt.style.transform = `translateY(-.1px)`;
+                this.lyricsCt.style.transition = 'transform 0s'
             }
         },
         pauselyrics: function(){
