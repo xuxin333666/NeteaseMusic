@@ -1,8 +1,8 @@
 requirejs.config({
-    baseUrl: './src/JavaScript/component',
+    baseUrl: './src/Javascript/component',
     paths: {
         'jquery': '../lib/jquery-3.3.1.min',
         'lib': '../lib'
     }
 })
-requirejs(['./src/JavaScript/index.js'])
+requirejs(['../index.js'])
