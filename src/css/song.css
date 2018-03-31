@@ -43,7 +43,7 @@ body {
     position: relative;
     height: 250vh;
     width: 100vw;
-    display: flex;
+    display : -webkit-flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(0,0,0,0.5);
@@ -62,7 +62,7 @@ body {
 .discContainer {
     position: relative;
     margin-top: 10vh;
-    display: flex;
+    display : -webkit-flex;
     justify-content: center;
     align-items: center; 
 }
@@ -128,7 +128,7 @@ body {
 }
 .otherLink {
     margin-top: 12vh;
-    display: flex;
+    display : -webkit-flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
