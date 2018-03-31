@@ -39,9 +39,50 @@ define(['lib/ajax'],function(Ajax){
             for (let i = 0; i < arr.length; i++) {
                 var lrcP = document.createElement('p');
                 lrcP.classList.add('lyrics');
+                lrcP.setAttribute('data-time',arr[i].time)
                 lrcP.innerText = arr[i].words;
                 lyricsCt.appendChild(lrcP);
             }
+        },
+        playlyrics: function(){
+            var self = this;
+            this.lyricsCt = document.querySelector('.lyricsCt');
+            this.lyrics = document.querySelectorAll('.lyrics');
+            this.setTimeOut = setInterval(function(){
+               var playTime = self.audioNode.currentTime +0.5;
+               var minutes = Math.floor(playTime/60);
+               var seconds = Math.floor(playTime%60);
+               var selfTime = Math.floor((playTime - minutes*60 - seconds)*60)
+               minutes = minutes >= 10 ? minutes : '0' + minutes;
+               seconds = seconds >= 10 ? seconds : '0' + seconds;
+               selfTime   = selfTime   >= 10 ? selfTime  : '0' + selfTime ;
+               var timeStr = minutes + ':' + seconds + '.' +  selfTime;
+               self.lyricsSelect(timeStr);              
+            },300)
+        },
+        lyricsSelect: function(time){
+            var self = this;
+            for (let i = 0; i < self.lyrics.length; i++) {
+                if(self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') <= time && self.lyrics[i+1].getAttribute('data-time') > time){
+                    var lyricsNow = self.lyrics[i]
+                    break;  
+                }
+            }
+            for (let i = 0; i < self.lyrics.length; i++) {
+                self.lyrics[i].classList.remove('action');                   
+            }
+            lyricsNow.classList.add('action');
+            self.lyricsScroll(lyricsNow);
+        },
+        lyricsScroll: function(now){
+            var distance = now.offsetTop-(this.lyrics[1].offsetTop - this.lyrics[0].offsetTop);
+            if(distance > 0){
+                this.lyricsCt.style.transform = `translateY(-${distance}px)`
+            }
+        },
+        pauselyrics: function(){
+            var self = this;
+            clearInterval(self.setTimeOut);
         },
         audioPause: function(){
             this.audioNode.pause();

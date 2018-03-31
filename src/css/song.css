@@ -62,35 +62,47 @@ body {
 .discContainer {
     position: relative;
     margin-top: 10vh;
-    display : -webkit-flex;
+    /* display : -webkit-flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;  */
 }
 .disc.pause {
     animation-Play-State: paused;
 }
 .disc {
     animation-Play-State: running;
-    position: absolute;  
-    align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;  
     animation: circle 20s infinite linear; 
 }
 .disc.pan,
 .disc.underlying,
 .disc.light {
-    width: 70vw;
+    width: 262px;
+    height: 262px;
+}
+.disc.pan,
+.disc.light {
+    margin-top: -131px;
+    margin-left: -131px;
 }
 .disc.cover {
     border-radius: 50%;
-    width: 45vw;
+    width: 176px;
+    height: 176px;
+    margin-top: -88px;
+    margin-left: -88px;
 }
 .discContainer>.underlying {
     position: unset;
     opacity: 0;
 }
 .start.disc {
-    width: 15vw;
-    height: 8vh;
+    width: 56px;
+    height: 56px;
+    margin-top: -28px;
+    margin-left: -28px;
     background: url('../img/start.png') no-repeat;
     background-size: contain;
     animation: unset;
@@ -114,8 +126,19 @@ body {
 .author {
     font-size: 16px;
 }
+.lyricsWindow {
+    overflow: hidden;
+    height: 125px;
+}
+.lyricsCt {
+    transform: translateY(-1px);
+    transition: all .3s;
+}
 .lyrics {
     margin: 1.5vh 0;
+}
+.lyrics.action {
+    color: white;
 }
 .loadMoreCt {
     width: 5vw;

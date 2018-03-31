@@ -69,7 +69,8 @@ define(['jquery','song','lib/ajax','playSong'],function($,arr,Ajax,PlaySong){
             start.classList.remove('pause');
         },
         function(){
-            p1.audioPlay()
+            p1.audioPlay();
+            p1.playlyrics();
         },
         function(){
             pointer.classList.remove('pause')
@@ -86,6 +87,7 @@ define(['jquery','song','lib/ajax','playSong'],function($,arr,Ajax,PlaySong){
         },
         function(){
             p1.audioPause();
+            p1.pauselyrics();
         },
         function(){
             pointer.classList.add('pause')
