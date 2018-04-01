@@ -10,6 +10,8 @@ define(['lib/ajax'],function(Ajax){
         this.audioNode = document.createElement('audio');
         this.otherLink = document.querySelector('.otherLink');
         this.otherMusicCt = document.querySelector('.otherMusicCt');
+        this.linkLoading = document.querySelector('.otherLink>.loading');
+        this.musicLoading = document.querySelector('.otherMusicCt>.loading');
         this.audioNode.setAttribute('src',this.audioUrl);
         this.renderOtherMusic(ret);
         this.parseLrc(this.lyric);
@@ -61,7 +63,8 @@ define(['lib/ajax'],function(Ajax){
                     otherMusic.innerHTML = `<img src="${value.cover}" alt=""><a href="./song.html?id=${value.id}" class="playOther"></a><h4 class="overflow">${value.title}</h4><p class="overflow">${value.author}-${value.title}</p>`
                     self.otherMusicCt.appendChild(otherMusic)
                 }
-            })   
+            })
+            this.musicLoading.classList.add('action');   
         },
         renderOther: function(ret){
             var self = this;
@@ -80,7 +83,8 @@ define(['lib/ajax'],function(Ajax){
                     other.innerHTML = `<a href="#"><img src="${value.cover}" alt=""><h5 class="overflow">${value.describe}</h5><p class="overflow">${value.additional}</p></a>`;
                     self.otherLink.appendChild(other);                   
                 }
-            })   
+            })
+            this.linkLoading.classList.add('action');   
         },
         playlyrics: function(){
             var self = this;

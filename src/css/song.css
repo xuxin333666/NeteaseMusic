@@ -30,6 +30,14 @@ h3.title:before {
     position: absolute;
     left: 0;
 }
+.loading {
+    display: block;
+    width: 10vw;
+    margin: 10vw auto;
+}
+.loading.action {
+    display: none;
+}
 #logo {
     position: absolute;
     margin: 3vw;
