@@ -128,9 +128,9 @@ define(['lib/ajax'],function(Ajax){
         lyricsScroll: function(now){
             var distance = now.offsetTop-(this.lyrics[1].offsetTop - this.lyrics[0].offsetTop);
             if(distance > 0){
-                this.lyricsCt.style.transform = `translateY(-${distance}px)`
+                this.lyricsCt.style.transform = `webkitTranslateY(-${distance}px)`
             }else{
-                this.lyricsCt.style.transform = `translateY(-.1px)`;
+                this.lyricsCt.style.transform = `webkitTranslateY(-.1px)`;
                 this.lyricsCt.style.transition = 'transform 0s'
             }
         },
