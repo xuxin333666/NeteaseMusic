@@ -131,7 +131,6 @@ define(['lib/ajax'],function(Ajax){
                 this.lyricsCt.style.transform = `translateY(-${distance}px)`
             }else{
                 this.lyricsCt.style.transform = `translateY(-.1px)`;
-                this.lyricsCt.style.transition = 'transform 0s'
             }
         },
         pauselyrics: function(){
