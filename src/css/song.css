@@ -157,6 +157,20 @@ div.bgimg {
 .lyrics {
     line-height: 8.6vw;
 }
+@media(max-height: 500px){
+    .main {
+        margin-top: 4vw;
+        width: 80vw;
+        height: 50vw;
+        text-align: center;
+    }
+    .lyricsWindow {
+        height: 15.2vw
+    }
+    .lyrics {
+        line-height: 7.6vw;
+    }
+}
 .lyrics.action {
     color: white;
 }
