@@ -37,7 +37,7 @@ define(['lib/ajax'],function(Ajax){
             var self = this;
             var lyricsCt = document.querySelector('.lyricsCt');
             var title = document.querySelector('.songName');
-            document.querySelector('body').style.background = `url("${self.bgimg}") top center / cover fixed`;
+            document.querySelector('div.bgimg').style.background = `url("${self.bgimg}") top center / cover fixed`;
             document.querySelector('footer').style.background = `url("${self.bgimg}") bottom center / cover fixed`;
             document.querySelector('.cover').setAttribute('src',this.cover);
             title.innerHTML = this.title + `- <span class="author">${this.author}</span>`;

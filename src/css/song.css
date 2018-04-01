@@ -34,8 +34,13 @@ html,body {
     height: 100vh;
     font-size: 4.26vw;
 }
-body {
+div.bgimg {
     background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 .wrapper {
     position: relative;
