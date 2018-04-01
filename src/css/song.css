@@ -157,12 +157,15 @@ div.bgimg {
 .lyrics {
     line-height: 8.6vw;
 }
-@media(max-height: 500px){
+@media(max-height: 580px){
     .main {
         margin-top: 4vw;
         width: 80vw;
         height: 50vw;
         text-align: center;
+    }
+    .songName {
+        margin-bottom: 2vw;
     }
     .lyricsWindow {
         height: 15.2vw
