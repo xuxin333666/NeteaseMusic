@@ -1,4 +1,4 @@
-define(['lib/ajax'],function(Ajax){
+define(['jquery','lib/ajax'],function($,Ajax){
     function PlaySong(ret,id){
         this.id = id || 1;
         this.title = ret[this.id].title || '无题';
@@ -114,6 +114,9 @@ define(['lib/ajax'],function(Ajax){
                 if(self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') <= time && self.lyrics[i+1].getAttribute('data-time') > time){
                     var lyricsNow = self.lyrics[i]
                     break;  
+                }else if(!self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') > time){
+                    var lyricsNow = self.lyrics[i]
+                    break;  
                 }
             }
             if(lyricsNow ){
@@ -128,9 +131,11 @@ define(['lib/ajax'],function(Ajax){
         lyricsScroll: function(now){
             var distance = now.offsetTop-(this.lyrics[1].offsetTop - this.lyrics[0].offsetTop);
             if(distance > 0){
-                this.lyricsCt.style.transform = `translateY(-${distance}px)`
+                $(this.lyricsCt).css('-webkit-transform',`translateY(-${distance}px)`);
+                // this.lyricsCt.style.transform = `translateY(-${distance}px)`
             }else{
-                this.lyricsCt.style.transform = `translateY(-.1px)`;
+                $(this.lyricsCt).css('-webkit-transform',`translateY(-.1px)`);
+                // this.lyricsCt.style.transform = `translateY(-.1px)`;
             }
         },
         pauselyrics: function(){

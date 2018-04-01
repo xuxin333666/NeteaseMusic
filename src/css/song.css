@@ -88,10 +88,12 @@ div.bgimg {
     align-items: center;  */
 }
 .disc.pause {
+    -webkit-animation-play-state: paused;
     animation-Play-State: paused;
 }
 .disc {
     animation-Play-State: running;
+    -webkit-animation-play-state: running;
     position: absolute;
     top: 50%;
     left: 50%;  
