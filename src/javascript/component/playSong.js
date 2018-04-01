@@ -8,7 +8,10 @@ define(['lib/ajax'],function(Ajax){
         this.bgimg = ret[this.id].bgimg || ''; 
         this.lyric = ret[this.id].lyric || ''; 
         this.audioNode = document.createElement('audio');
+        this.otherLink = document.querySelector('.otherLink');
+        this.otherMusicCt = document.querySelector('.otherMusicCt');
         this.audioNode.setAttribute('src',this.audioUrl);
+        this.renderOtherMusic(ret);
         this.parseLrc(this.lyric);
     }
     PlaySong.prototype = {
@@ -48,6 +51,36 @@ define(['lib/ajax'],function(Ajax){
                 lrcP.innerText = arr[i].words;
                 lyricsCt.appendChild(lrcP);
             }
+        },
+        renderOtherMusic: function(ret){
+            var self = this;
+            ret.forEach(function(value){
+                if(value.id !== parseInt(self.id) && Math.floor(Math.random()*2)){
+                    var otherMusic = document.createElement('li');
+                    otherMusic.classList.add('clearfix');
+                    otherMusic.innerHTML = `<img src="${value.cover}" alt=""><a href="./song.html?id=${value.id}" class="playOther"></a><h4 class="overflow">${value.title}</h4><p class="overflow">${value.author}-${value.title}</p>`
+                    self.otherMusicCt.appendChild(otherMusic)
+                }
+            })   
+        },
+        renderOther: function(ret){
+            var self = this;
+            var arr = [1,2,3,4,5,6];
+            for (let i = 0; i < 3; i++) {
+                var index = Math.floor(Math.random()*arr.length)
+                arr = arr.filter(function(value,arrIndex){
+                    if(arrIndex !== index){
+                        return value
+                    }
+                });
+            } 
+            ret.forEach(function(value,index){
+                if(arr.indexOf(index+1)!==-1){
+                    var other = document.createElement('li');
+                    other.innerHTML = `<a href="#"><img src="${value.cover}" alt=""><h5 class="overflow">${value.describe}</h5><p class="overflow">${value.additional}</p></a>`;
+                    self.otherLink.appendChild(other);                   
+                }
+            })   
         },
         playlyrics: function(){
             var self = this;

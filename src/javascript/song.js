@@ -45,18 +45,17 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
         }
     } 
     var songPS = new PubSub(); 
-    // songPS.on('getcover',[function(){
-    //     Ajax.on({
-    //         url: 'http://api.jirengu.com/fm/getChannels.php',
-    //         success: function(ret){
-    //         }
-    //     })
-    // }]);
     songPS.on('getSong',[function(){
         Ajax.on({
             url: './songList.json',
             success: function(ret){
                 p1 = new PlaySong(ret,songId)
+                Ajax.on({
+                    url: './tuijian-list.json',
+                    success: function(ret){
+                        p1.renderOther(ret);
+                    }
+                })
             }
         })
     }]);
@@ -94,7 +93,7 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
             pointer.classList.add('pause')
         }
     ])
-    songPS.fire('getcover','getSong');  
+    songPS.fire('getSong');  
     discCt.addEventListener('click',function(){
         songPS.fire('pause');  
     })

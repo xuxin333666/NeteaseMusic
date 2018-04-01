@@ -23,6 +23,13 @@
         transform: rotate(360deg);
     }
 }
+h3.title:before {
+    content: '';
+    border: 0.27vw solid #d33a31;
+    height: 4.45vw;
+    position: absolute;
+    left: 0;
+}
 #logo {
     position: absolute;
     margin: 3vw;
@@ -163,18 +170,19 @@ div.bgimg {
     padding: 2.66vw;
     color: white;
     font-size: 4.26vw;
+    line-height: 1;
     font-weight: unset;
 }
 .otherLink>li {
     width: 31.5vw;
 }
-.otherLink>li>img {
+.otherLink>li img {
     width: 100%;
 }
 .otherMusicCt>li>h4,
 .otherMusicCt>li>p,
-.otherLink>li>h5,
-.otherLink>li>p {
+.otherLink>li h5,
+.otherLink>li p {
     font-weight: unset;
     padding: 0.53vw 1.33vw;
     color: white;
@@ -182,7 +190,7 @@ div.bgimg {
 .otherMusicCt>li>h4 {
     font-size: 4vw;
 }
-.wrapper .otherLink>li>p {
+.wrapper>.otherLink>li p {
     font-size: 3.2vw;
     color: #ccc;
 }
@@ -190,7 +198,7 @@ div.bgimg {
     margin-top: 12vw;
 }
 .otherMusicCt>li {
-    padding: 1.33vw;
+    padding: 1.33vw 2.66vw;
     border-bottom: 1px solid rgb(114, 96, 73);
 }
 .otherMusicCt>li>img {
@@ -208,8 +216,8 @@ div.bgimg {
 .otherMusicCt>li>.playOther {
     margin: 2.93vw 1.33vw;
     float: right;
-    width: 8vw;
-    height: 8vw;
+    width: 6.5vw;
+    height: 6.5vw;
     background: url('../img/start.png') no-repeat;
     background-size: contain;
 }
