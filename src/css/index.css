@@ -40,6 +40,14 @@ h3.title:before {
     position: absolute;
     left: 0;
 }
+.loading {
+    display: block;
+    width: 10vw;
+    margin: 10vw auto;
+}
+.loading.action {
+    display: none;
+}
 header {
     display: -webkit-flex;
     justify-content: space-between;
@@ -83,10 +91,10 @@ header>.button {
     margin-bottom: 5vw;
     width: 32.5%;
 }
-.tujianMusic>.coverList>.cover {
+.tujianMusic>.coverList .cover {
     width: 100%;
 }
-.tujianMusic>.coverList>.describe {
+.tujianMusic>.coverList .describe {
     font-size:3.47vw;
     padding: 1vw 1.5vw;
     line-height: 4.5vw;
@@ -96,20 +104,13 @@ header>.button {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
 }
 .latestCt>.latest {
     position: relative;
     font-size: 4.5vw;
     padding: 1vw 2.77vw;
     border-bottom: 0.27vw solid #f1f1f2;
-}
-.latestCt>.loading {
-    display: block;
-    width: 10vw;
-    margin: 10vw auto;
-}
-.latestCt>.loading.action {
-    display: none;
 }
 .latestCt>.latest .describe {
     display: -webkit-flex;

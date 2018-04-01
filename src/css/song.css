@@ -32,16 +32,13 @@
 html,body {
     width: 100vw;
     height: 100vh;
+    font-size: 4.26vw;
 }
 body {
-    background: url('../img/bgimg.jpg') no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: top center;
+    background: black;
 }
 .wrapper {
     position: relative;
-    height: 250vh;
     width: 100vw;
     display : -webkit-flex;
     flex-direction: column;
@@ -57,11 +54,11 @@ body {
 .pointer.pause {
     transform: rotate(-20deg);
     transform-origin: top;
-    top: -2vh;
+    top: -4vw;
 }
 .discContainer {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 20vw;
     /* display : -webkit-flex;
     justify-content: center;
     align-items: center;  */
@@ -79,30 +76,30 @@ body {
 .disc.pan,
 .disc.underlying,
 .disc.light {
-    width: 262px;
-    height: 262px;
+    width: 69.86vw;
+    height: 69.86vw;
 }
 .disc.pan,
 .disc.light {
-    margin-top: -131px;
-    margin-left: -131px;
+    margin-top: -34.93vw;
+    margin-left: -34.93vw;
 }
 .disc.cover {
     border-radius: 50%;
-    width: 176px;
-    height: 176px;
-    margin-top: -88px;
-    margin-left: -88px;
+    width: 46.93vw;
+    height: 46.93vw;
+    margin-top: -23.46vw;
+    margin-left: -23.46vw;
 }
 .discContainer>.underlying {
     position: unset;
     opacity: 0;
 }
 .start.disc {
-    width: 56px;
-    height: 56px;
-    margin-top: -28px;
-    margin-left: -28px;
+    width: 14.93vw;
+    height: 14.93vw;
+    margin-top: -7.47vw;
+    margin-left: -7.47vw;
     background: url('../img/start.png') no-repeat;
     background-size: contain;
     animation: unset;
@@ -112,45 +109,44 @@ body {
     display: block;
 }
 .main {
-    margin-top: 5vh;
+    margin-top: 10vw;
     width: 80vw;
-    height: 25vh;
+    height: 50vw;
     text-align: center;
 }
 .songName {
-    margin-bottom: 2vh;
+    margin-bottom: 4vw;
     font-weight: unset;
     color: white;
 }
 .author {
-    font-size: 16px;
+    font-size: 4.26vw;
 }
 .lyricsWindow {
     overflow: hidden;
-    height: 145px;
+    height: 38.67vw
 }
 .lyricsCt {
     transform: translateY(-.1px);
     transition: all .3s;
 }
 .lyrics {
-    line-height: 36px;
+    line-height: 9.6vw;
 }
 .lyrics.action {
     color: white;
 }
 .loadMoreCt {
     width: 5vw;
-    height: 2vh;
-    margin-top: 8vh;
+    height: 4vw;
+    margin-top: 4vw;
     overflow: hidden;
 }
 .loadMoreCt>.loadMore {
     width: 5vw;
-    height: 8vh;
+    height: 16vw;
 }
 .otherLink {
-    margin-top: 12vh;
     display : -webkit-flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -159,9 +155,9 @@ body {
 .otherMusic {
     box-sizing: border-box;
     width: 100vw;
-    padding: 10px;
+    padding: 2.66vw;
     color: white;
-    font-size: 16px;
+    font-size: 4.26vw;
     font-weight: unset;
 }
 .otherLink>li {
@@ -175,21 +171,21 @@ body {
 .otherLink>li>h5,
 .otherLink>li>p {
     font-weight: unset;
-    padding: 2px 5px;
+    padding: 0.53vw 1.33vw;
     color: white;
 }
 .otherMusicCt>li>h4 {
-    font-size: 15px;
+    font-size: 4vw;
 }
 .wrapper .otherLink>li>p {
-    font-size: 12px;
+    font-size: 3.2vw;
     color: #ccc;
 }
 .otherMusicCt {
-    margin-top: 6vh;
+    margin-top: 12vw;
 }
 .otherMusicCt>li {
-    padding: 5px;
+    padding: 1.33vw;
     border-bottom: 1px solid rgb(114, 96, 73);
 }
 .otherMusicCt>li>img {
@@ -201,38 +197,34 @@ body {
     margin-left: 15vw;
 }
 .otherMusicCt>li>p {
-    font-size: 14px;
+    font-size: 3.73vw;
     color: #ccc;
 }
 .otherMusicCt>li>.playOther {
-    margin: 11px 5px;
+    margin: 2.93vw 1.33vw;
     float: right;
     width: 8vw;
-    height: 4vh;
+    height: 8vw;
     background: url('../img/start.png') no-repeat;
     background-size: contain;
 }
 .btnct {
     width: 100vw;
-    padding: 0.8vh 0;
+    padding: 1.6vw 0;
     text-align: center;
     background-color: rgba(0,0,0,0.5);
 }
 footer {
     position: fixed;
     bottom: 0;
-    background: url('../img/bgimg.jpg') no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: bottom center;
 }
 .btn {
-    padding: 1.3vh 3.8vw;
-    border-radius: 100px;
+    padding: 2.6vw 3.8vw;
+    border-radius: 26.6vw;
     display: inline-block;
     width: 35vw;
     border: 1px solid #d33a31;
-    font-size: 17px;
+    font-size: 4.53vw;
     margin: 1.5vw;
 }
 .btn.open {
