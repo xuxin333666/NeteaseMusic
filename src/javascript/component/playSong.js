@@ -114,7 +114,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
                 if(self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') <= time && self.lyrics[i+1].getAttribute('data-time') > time){
                     var lyricsNow = self.lyrics[i]
                     break;  
-                }else if(!self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') > time){
+                }else if(!self.lyrics[i+1] && self.lyrics[i].getAttribute('data-time') <= time){
                     var lyricsNow = self.lyrics[i]
                     break;  
                 }
