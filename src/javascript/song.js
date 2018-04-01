@@ -104,4 +104,5 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
             songPS.fire('pause'); 
         })
     })
+    return PubSub;
 })

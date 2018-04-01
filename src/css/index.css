@@ -162,4 +162,34 @@ footer>.copyright {
     color: #888;
     transform: scale(0.75)
 }
+.hotMusicHeader {
+    position: relative;
+    background: url('../img/hot_music_bg_2x.jpg') no-repeat;
+    background-size: cover;
+    padding: 5.5vw;
+    z-index: -2;
+}
+.hotMusicHeader:after {
+    content: '';
+    background: rgba(0,0,0,0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.hotMusicHeader>.hotMusicBg1 {
+    width: 38vw;
+    height: 17.8vw;
+    background: url('../img/hotMusicBg1.png') no-repeat;
+    background-size: contain;
+}
+.hotMusicHeader>.update {
+    margin-top: 2.2vw;
+    margin-bottom: 3.5vw;
+    font-size: 3.2vw;
+    transform: scaleY(0.9);
+    color: white;
+}
 

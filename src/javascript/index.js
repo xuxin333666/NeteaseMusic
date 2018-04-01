@@ -1,4 +1,51 @@
-define(['lib/ajax','renderIndex'],function(ajax,render){
+define(['lib/ajax','renderIndex',],function(ajax,render){
+    var wrapper = document.querySelector('.wrapper');
+    var tabCt = document.querySelector('.tabCt');
+    var tab = document.querySelectorAll('.tab');
+    var tuijian = document.querySelector('.tuijian');
+    var hotMusic = document.querySelector('.hotMusic');
+    var search = document.querySelector('.search');
+    var tuijianCt = document.querySelector('.tuijianCt');
+    var hotMusicCt = document.querySelector('.hotMusicCt');
+    var searchCt = document.querySelector('.searchCt');
+    var ranking = document.querySelector('.ranking');
+    function PubSub(){
+        this.events = {};
+    }
+    PubSub.prototype = {
+        on: function(evt,arr){
+            this.events[evt] = this.events[evt] || [];
+            for (let i = 0; i < arr.length; i++) {
+                this.events[evt].push(arr[i]);               
+            }
+        },
+        fire: function(evt){
+            var self = this;
+            [].forEach.call(arguments,function(value){
+                if(self.events[value]){
+                    for (let i = 0; i < self.events[value].length; i++) {
+                        self.events[value][i]();                
+                    }
+                }
+            })
+        },
+        off: function(evt,fn){
+            if(fn){
+                if(this.events[evt]){
+                    for (let i = 0; i < this.events[evt].length; i++) {
+                        if(this.events[evt][i] ===fn){
+                            this.events[evt].splice(i,1);    
+                            break;
+                        }
+                    }
+                }
+            }else{
+                if(this.events[evt]){
+                    delete this.events[evt];    
+                }
+            }
+        }
+    } 
     ajax.on({
         url: './songList.json',
         success: function(ret){
@@ -18,5 +65,32 @@ define(['lib/ajax','renderIndex'],function(ajax,render){
         error: function(){
             alert('网络错误')
         }
+    })
+    var p1 = new PubSub();
+    p1.on('clickTab',[function(){
+        tab.forEach(function(value){
+            value.children[0].classList.remove('action');
+           [].forEach.call(wrapper.children,function(value){
+                value.style.display = 'none';
+            })
+        })
+    }]);
+    p1.on('n1',[function(){
+        tuijian.children[0].classList.add('action');
+        tuijianCt.style.display = 'block';
+    }]);
+    p1.on('n2',[function(){
+        hotMusic.children[0].classList.add('action');
+        hotMusicCt.style.display = 'block';
+        ranking.innerHTML = '<img src="./src/img/loading.gif" alt="" class="hotMusic loading">';
+        r1.getHotMusic();
+    }]);
+    p1.on('n3',[function(){
+        search.children[0].classList.add('action');
+        searchCt.style.display = 'block';
+        searchCt.innerHTML = '<img src="./src/img/loading.gif" alt="" class="search loading">';
+    }]);
+    tabCt.addEventListener('click',function(e){
+        p1.fire('clickTab',e.target.getAttribute('data-number'));
     })
 })

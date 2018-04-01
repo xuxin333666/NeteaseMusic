@@ -31,6 +31,14 @@ define(function(){
                 self.tujianMusic.appendChild(tuijianListLi);
             })
             this.tuijianLoading.classList.add('action')
+        },
+        getHotMusic: function(){
+            document.querySelector('.update').innerHTML = '更新日期：' + this.getUpdateTime();
+        },
+        getUpdateTime: function(){
+            var month = (new Date().getMonth()+1 <10)? '0' + (new Date().getMonth()+1) : (new Date().getMonth()+1);
+            var day = (new Date().getDay()+1 <10)? '0' + (new Date().getDay()+1 ): (new Date().getDay()+1);
+            return month + '月' + day + '日';
         }
     }
     return Render;
