@@ -38,6 +38,9 @@ h3.title:before {
 .loading.action {
     display: none;
 }
+a {
+    display: block;
+}
 #logo {
     position: absolute;
     margin: 3vw;
@@ -48,6 +51,7 @@ html,body {
     width: 100vw;
     height: 100vh;
     font-size: 4.26vw;
+    overflow-x: hidden;
 }
 div.bgimg {
     background: black;
@@ -144,14 +148,14 @@ div.bgimg {
 }
 .lyricsWindow {
     overflow: hidden;
-    height: 38.67vw
+    height: 25.8vw
 }
 .lyricsCt {
     transform: translateY(-.1px);
     transition: all .3s;
 }
 .lyrics {
-    line-height: 9.6vw;
+    line-height: 8.6vw;
 }
 .lyrics.action {
     color: white;
@@ -175,7 +179,7 @@ div.bgimg {
 .otherMusic {
     box-sizing: border-box;
     width: 100vw;
-    padding: 2.66vw;
+    padding: 3.5vw 2.66vw;
     color: white;
     font-size: 4.26vw;
     line-height: 1;
@@ -187,15 +191,15 @@ div.bgimg {
 .otherLink>li img {
     width: 100%;
 }
-.otherMusicCt>li>h4,
-.otherMusicCt>li>p,
+.otherMusicCt>li h4,
+.otherMusicCt>li p,
 .otherLink>li h5,
 .otherLink>li p {
     font-weight: unset;
     padding: 0.53vw 1.33vw;
     color: white;
 }
-.otherMusicCt>li>h4 {
+.otherMusicCt>li h4 {
     font-size: 4vw;
 }
 .wrapper>.otherLink>li p {
@@ -209,25 +213,29 @@ div.bgimg {
     padding: 1.33vw 2.66vw;
     border-bottom: 1px solid rgb(114, 96, 73);
 }
-.otherMusicCt>li>img {
+.otherMusicCt>li img {
     width: 13vw;
     float: left;
 }
-.otherMusicCt>li>h4,
-.otherMusicCt>li>p {
+.otherMusicCt>li h4,
+.otherMusicCt>li p {
     margin-left: 15vw;
 }
-.otherMusicCt>li>p {
+.otherMusicCt>li p {
     font-size: 3.73vw;
     color: #ccc;
 }
-.otherMusicCt>li>.playOther {
+.otherMusicCt>li .playOther {
     margin: 2.93vw 1.33vw;
     float: right;
     width: 6.5vw;
     height: 6.5vw;
     background: url('../img/start.png') no-repeat;
     background-size: contain;
+}
+.blank {
+    width: 100%;
+    height: 20vw;
 }
 .btnct {
     width: 100vw;

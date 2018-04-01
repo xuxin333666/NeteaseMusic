@@ -60,8 +60,14 @@ define(['lib/ajax'],function(Ajax){
                 if(value.id !== parseInt(self.id) && Math.floor(Math.random()*2)){
                     var otherMusic = document.createElement('li');
                     otherMusic.classList.add('clearfix');
-                    otherMusic.innerHTML = `<img src="${value.cover}" alt=""><a href="./song.html?id=${value.id}" class="playOther"></a><h4 class="overflow">${value.title}</h4><p class="overflow">${value.author}-${value.title}</p>`
-                    self.otherMusicCt.appendChild(otherMusic)
+                    otherMusic.innerHTML = 
+                    `<a href="./song.html?id=${value.id}">`+
+                        `<img src="${value.cover}" alt="">`+
+                        `<div class="playOther"></div>`+
+                        `<h4 class="overflow">${value.title}</h4>`+
+                        `<p class="overflow">${value.author}-${value.title}</p>`+
+                    `</a>`
+                    self.otherMusicCt.appendChild(otherMusic);
                 }
             })
             this.musicLoading.classList.add('action');   
@@ -91,7 +97,7 @@ define(['lib/ajax'],function(Ajax){
             this.lyricsCt = document.querySelector('.lyricsCt');
             this.lyrics = document.querySelectorAll('.lyrics');
             this.setTimeOut = setInterval(function(){
-               var playTime = self.audioNode.currentTime +0.5;
+               var playTime = self.audioNode.currentTime;
                var minutes = Math.floor(playTime/60);
                var seconds = Math.floor(playTime%60);
                var selfTime = Math.floor((playTime - minutes*60 - seconds)*60)
