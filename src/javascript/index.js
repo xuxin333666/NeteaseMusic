@@ -82,13 +82,15 @@ define(['lib/ajax','renderIndex',],function(ajax,render){
     p1.on('n2',[function(){
         hotMusic.children[0].classList.add('action');
         hotMusicCt.style.display = 'block';
-        ranking.innerHTML = '<img src="./src/img/loading.gif" alt="" class="hotMusic loading">';
-        r1.getHotMusic();
+        if(!hotMusicCt.getAttribute('data-status')){
+            r1.getHotMusic();
+        }
     }]);
     p1.on('n3',[function(){
         search.children[0].classList.add('action');
         searchCt.style.display = 'block';
-        searchCt.innerHTML = '<img src="./src/img/loading.gif" alt="" class="search loading">';
+        if(searchCt.getAttribute('data-status')){
+        }
     }]);
     tabCt.addEventListener('click',function(e){
         p1.fire('clickTab',e.target.getAttribute('data-number'));

@@ -106,13 +106,19 @@ header>.button {
     text-overflow: ellipsis;
     text-align: center;
 }
-.latestCt>.latest {
+.latestCt>.latest,
+.ranking>.rankNumber {
     position: relative;
     font-size: 4.5vw;
-    padding: 1vw 2.77vw;
+    padding: 0 2.77vw;
+}
+.latestCt>.latest>a,
+.ranking>.rankNumber>a {
+    padding: 1vw 0;
     border-bottom: 0.27vw solid #f1f1f2;
 }
-.latestCt>.latest .describe {
+.latestCt>.latest .describe,
+.ranking>.rankNumber .describe {
     display: -webkit-flex;
     align-items: center;
     margin-right: 15vw;
@@ -120,7 +126,8 @@ header>.button {
     font-size: 3.2vw;
     color: #888;
 }
-.latestCt>.latest .describe>.SQ {
+.latestCt>.latest .describe>.SQ,
+.ranking>.rankNumber .describe>.SQ {
     display: block;
     margin-top: 0.5vw;
     width: 5vw;
@@ -128,7 +135,8 @@ header>.button {
     background: url('../img/SQ.png') no-repeat;
     background-size: contain;
 }
-.latestCt>.latest .play {
+.latestCt>.latest .play,
+.ranking>.rankNumber .play {
     width: 6vw;
     height: 6vw;
     background: url('../img/start.png') no-repeat;
@@ -162,6 +170,10 @@ footer>.copyright {
     color: #888;
     transform: scale(0.75)
 }
+.hotMusicCt,
+.searchCt {
+    display: none;
+}
 .hotMusicHeader {
     position: relative;
     background: url('../img/hot_music_bg_2x.jpg') no-repeat;
@@ -191,5 +203,33 @@ footer>.copyright {
     font-size: 3.2vw;
     transform: scaleY(0.9);
     color: white;
+}
+.ranking>.rankNumber {
+    display: -webkit-flex;
+    align-items: center;
+}
+.ranking>.rankNumber>.Number {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    font-size: 4.2vw;
+    padding-right: 2.77vw;
+    color: #888;
+}
+.ranking>.rankNumber>.firstThree.Number {
+    color: #df3436;
+}
+.ranking>.rankNumber>a {
+    flex: 1;
+}
+.hotMusicFooter {
+    height: 14.5vw;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.hotMusicFooter>.showMore {
+    line-height: 1;
+    color: #999;
+    font-size: 3.7vw;
 }
 

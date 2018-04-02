@@ -33,7 +33,24 @@ define(function(){
             this.tuijianLoading.classList.add('action')
         },
         getHotMusic: function(){
+            var self = this;
             document.querySelector('.update').innerHTML = '更新日期：' + this.getUpdateTime();
+            setTimeout(function(){
+                var ranking = document.querySelector('.ranking')
+                var str = '';
+                self.ret.forEach(function(value,index){
+                    index = (index+1)<10?'0'+(index+1):index+1;
+                    str += `<li class="rankNumber"><div class="Number">${index}</div><a href="./song.html?id=${value.id}">`+
+                    `<h4 class="songName">${value.title}</h4>`+
+                    `<p class="describe"><span class="SQ"></span>${value.author} - ${value.title}</p>`+
+                    `<a href="./song.html?id=${value.id}" class="play"></a></a></li>`;
+                });
+                ranking.innerHTML = str;
+                for (let i = 0; i < 3; i++) {
+                    document.querySelectorAll('.rankNumber>.Number')[i].classList.add('firstThree');         
+                }
+                document.querySelector('.hotMusicCt').setAttribute('data-status','downloaded');
+            },1500)
         },
         getUpdateTime: function(){
             var month = (new Date().getMonth()+1 <10)? '0' + (new Date().getMonth()+1) : (new Date().getMonth()+1);
