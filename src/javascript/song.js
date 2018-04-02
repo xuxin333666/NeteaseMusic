@@ -61,12 +61,13 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
     }]);
     songPS.on('play',[
         function(){
-        disc.forEach(function(value){
-            value.classList.remove('pause')
-        })
+            disc.forEach(function(value){
+                value.classList.remove('pause');
+                value.classList.remove('pause');
+            })
         },
         function(){
-            start.classList.remove('pause');
+                start.classList.remove('pause');
         },
         function(){
             p1.audioPlay();
@@ -82,7 +83,12 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
         },
         function(){
             disc.forEach(function(value){
-                value.classList.add('pause');
+                if(/iPhone/i.test(window.navigator.userAgent) || /Android/i.test(window.navigator.userAgent)){
+                    alert(1)
+                    value.classList.add('pause')
+                }else{
+                    value.classList.add('pause');
+                }
             })
         },
         function(){

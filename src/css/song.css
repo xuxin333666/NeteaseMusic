@@ -85,13 +85,6 @@ div.bgimg {
 .discContainer {
     position: relative;
     margin-top: 20vw;
-    /* display : -webkit-flex;
-    justify-content: center;
-    align-items: center;  */
-}
-.disc.pause {
-    -webkit-animation-Play-State: paused;
-    animation-Play-State: paused;
 }
 .disc {
     animation-Play-State: running;
@@ -101,6 +94,14 @@ div.bgimg {
     left: 50%;  
     animation: circle 20s infinite linear; 
     -webkit-animation: circle 20s infinite linear; 
+}
+.disc.pause {
+    -webkit-animation-Play-State: paused;
+    animation-Play-State: paused;
+}
+.disc.paused {
+    animation: unset; 
+    -webkit-animation: unset; 
 }
 .disc.pan,
 .disc.underlying,
