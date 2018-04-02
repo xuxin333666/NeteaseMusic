@@ -53,7 +53,8 @@ define(['lib/ajax','renderIndex',],function(ajax,render){
             r1.songList();
         },
         error: function(){
-            alert('网络错误')
+            alert('网络错误');
+            document.querySelector('.tuijianCt').removeAttribute('data-status','downloaded');
         }
     })
     ajax.on({
@@ -63,7 +64,8 @@ define(['lib/ajax','renderIndex',],function(ajax,render){
             r2.tuijianList();
         },
         error: function(){
-            alert('网络错误')
+            alert('网络错误');
+            document.querySelector('.tuijianCt').removeAttribute('data-status','downloaded');
         }
     })
     var p1 = new PubSub();
