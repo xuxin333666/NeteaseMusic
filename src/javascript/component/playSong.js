@@ -129,7 +129,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             
         },
         lyricsScroll: function(now){
-            var distance = now.offsetTop-(this.lyrics[1].offsetTop - this.lyrics[0].offsetTop);
+            var distance = now.offsetTop - this.lyrics[1].offsetTop;
             if(distance > 0){
                 $(this.lyricsCt).css('-webkit-transform',`translateY(-${distance}px)`);
                 // this.lyricsCt.style.transform = `translateY(-${distance}px)`
