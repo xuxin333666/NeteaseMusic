@@ -83,7 +83,7 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
         },
         function(){
             disc.forEach(function(value){
-                if(/iPhone/i.test(window.navigator.userAgent) || /Android/i.test(window.navigator.userAgent)){
+                if(/(iPhone)|(Android)|(IPad)/i.test(window.navigator.userAgent)){
                     value.classList.add('paused')
                 }else{
                     value.classList.add('pause');
