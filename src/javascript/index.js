@@ -163,10 +163,7 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     p1.on('search',[function(){
         s1.getSearchResult(idSearch.value);
     }])
-    // 在p1上绑定查找历史交互功能及监听触发
-    p1.on('searchHistory',[function(){
-        s1.getSearchResult(idSearch.value);
-    }])
+    // 绑定查找历史交互功能及监听触发
     history.addEventListener('click',function(e){
         if(e.target.getAttribute('data-style')){
             e.target.parentNode.parentNode.remove()

@@ -59,6 +59,9 @@ define(['lib/ajax'],function(ajax){
             this.results.appendChild(li);
         },
         renderHistory: function(val){
+            if(val.length === 0){
+                return;
+            }
             var li = document.createElement('li');
             li.classList.add('child');
             li.innerHTML = `<a href="#" class="iconfont icon-history" data-value="${val}">`+
