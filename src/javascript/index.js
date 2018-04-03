@@ -1,20 +1,31 @@
 define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
-    var wrapper = document.querySelector('.wrapper');
-    var tabCt = document.querySelector('.tabCt');
-    var tab = document.querySelectorAll('.tab');
-    var tuijian = document.querySelector('.tuijian');
-    var hotMusic = document.querySelector('.hotMusic');
-    var search = document.querySelector('.search');
-    var tuijianCt = document.querySelector('.tuijianCt');
-    var hotMusicCt = document.querySelector('.hotMusicCt');
-    var searchCt = document.querySelector('.searchCt');
-    var ranking = document.querySelector('.ranking');
-    var searchHeader = document.querySelector('.searchHeader');
-    var idSearch = document.querySelector('#search');
-    var closeSearch = document.querySelector('.searchHeader>.closeIcon')
-    var searchMain = document.querySelector('.searchMain');
-    var resultCt = document.querySelector('.resultCt');
-    var keyWord = document.querySelector('.keyWord');
+    // 定义获取DOM节点函数及获取各DOM
+    function _(e){
+        return document.querySelector(e);
+    }
+    function _A(e){
+        return document.querySelectorAll(e);
+    }
+    var wrapper = _('.wrapper');
+    var tabCt = _('.tabCt');
+    var tab = _A('.tab');
+    var tuijian = _('.tuijian');
+    var hotMusic = _('.hotMusic');
+    var search = _('.search');
+    var tuijianCt = _('.tuijianCt');
+    var hotMusicCt = _('.hotMusicCt');
+    var searchCt = _('.searchCt');
+    var ranking = _('.ranking');
+    var searchHeader = _('.searchHeader');
+    var idSearch = _('#search');
+    var closeSearch = _('.searchHeader>.closeIcon')
+    var searchMain = _('.searchMain');
+    var resultCt = _('.resultCt');
+    var keyWord = _('.keyWord');
+    var history = _('.history');
+    // 定义搜索节流函数定时器
+    var time1 = null;
+    // 定义发布订阅构造函数及生成p1发布订阅对象
     function PubSub(){
         this.events = {};
     }
@@ -52,29 +63,35 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
             }
         }
     } 
+    var p1 = new PubSub();
+    // 发送ajax请求获取推荐专辑及最新歌曲列表信息
     ajax.on({
         url: './songList.json',
         success: function(ret){
-            r1 = new render(ret);
-            r1.songList();
+            if(!tuijianCt.getAttribute('data-songList')){
+                r1 = new render(ret);
+                r1.songList();
+                tuijianCt.setAttribute('data-songList','downloaded');
+            }
         },
         error: function(){
             alert('网络错误');
-            document.querySelector('.tuijianCt').removeAttribute('data-status','downloaded');
         }
     })
     ajax.on({
         url: './tuijian-list.json',
         success: function(ret){
-            r2 = new render(ret);
-            r2.tuijianList();
+            if(!tuijianCt.getAttribute('data-tuijian')){
+                r2 = new render(ret);
+                r2.tuijianList();
+                tuijianCt.setAttribute('data-tuijian','downloaded');
+            }
         },
         error: function(){
             alert('网络错误');
-            document.querySelector('.tuijianCt').removeAttribute('data-status','downloaded');
         }
     })
-    var p1 = new PubSub();
+    // 在p1上绑定tab切换事件及监听触发
     p1.on('clickTab',[function(){
         tab.forEach(function(value){
             value.children[0].classList.remove('action');
@@ -110,29 +127,54 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
             })
         }
     }]);
-    p1.on('closeIconClick',[function(){
+    tabCt.addEventListener('click',function(e){
+        p1.fire('clickTab',e.target.getAttribute('data-number'));
+    })
+    // 在p1上绑定搜索框交互功能及监听触发
+    p1.on('closeSearchContent',[function(){
         idSearch.value = '';
         closeSearch.classList.remove('action');
         searchMain.style.display = 'block';
         resultCt.style.display = 'none';
     }])
-    tabCt.addEventListener('click',function(e){
-        p1.fire('clickTab',e.target.getAttribute('data-number'));
-    })
-    closeSearch.addEventListener('click',function(){
-        p1.fire('closeIconClick');
-    })
-    idSearch.addEventListener('focus',function(e){
-        e.preventDefault();
-    })
-    idSearch.addEventListener('input',function(){
+    p1.on('openSearchContent',[function(){
         searchMain.style.display = 'none';
         closeSearch.classList.add('action');
         resultCt.style.display = 'block';
+        keyWord.innerText = `搜索"${idSearch.value}"`
+    }])
+    closeSearch.addEventListener('click',function(){
+        p1.fire('closeSearchContent');
+    })
+    idSearch.addEventListener('input',function(){     
         if(idSearch.value.length){
-            keyWord.innerText = `搜索"${idSearch.value}"`
+            p1.fire('openSearchContent');
         }else{
-            p1.fire('closeIconClick');
+            p1.fire('closeSearchContent');
         }
+        if(time1){
+            clearTimeout(time1);
+        }
+        time1 = setTimeout(argumengts => {
+            p1.fire('search')
+        },1000)
+    })
+    // 在p1上绑定搜索框结果显示事件
+    p1.on('search',[function(){
+        s1.getSearchResult(idSearch.value);
+    }])
+    // 在p1上绑定查找历史交互功能及监听触发
+    p1.on('searchHistory',[function(){
+        s1.getSearchResult(idSearch.value);
+    }])
+    history.addEventListener('click',function(e){
+        if(e.target.getAttribute('data-style')){
+            e.target.parentNode.parentNode.remove()
+            return;
+        }
+        idSearch.value = e.target.getAttribute('data-value');
+        p1.fire('openSearchContent');
+        p1.fire('search');
+        e.target.parentNode.remove();
     })
 })

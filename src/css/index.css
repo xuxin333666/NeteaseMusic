@@ -312,8 +312,10 @@ footer>.copyright {
     color: black;
     font-size: 3.77vw;
 }
-.searchMain>.history>.child>a>.key:after {
+.searchMain>.history>.child>a>.close:before {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     right: 4.3vw;
     color: #888;
     content: 'X';
@@ -340,6 +342,7 @@ footer>.copyright {
     transform: translateY(-50%);
     color: #888;
 }
+.resultCt>.results>.result.fail,
 .resultCt>.results .iconfont>.result {
     margin-left: 8vw;
     padding: 4vw 0;

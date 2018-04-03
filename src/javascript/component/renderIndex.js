@@ -50,7 +50,7 @@ define(function(){
                     document.querySelectorAll('.rankNumber>.Number')[i].classList.add('firstThree');         
                 }
                 document.querySelector('.hotMusicCt').setAttribute('data-status','downloaded');
-            },1500)
+            },1000)
         },
         getUpdateTime: function(){
             var month = (new Date().getMonth()+1 <10)? '0' + (new Date().getMonth()+1) : (new Date().getMonth()+1);
