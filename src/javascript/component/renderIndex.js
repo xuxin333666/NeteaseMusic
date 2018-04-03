@@ -25,7 +25,7 @@ define(function(){
             this.ret.forEach(function(value){
                 var tuijianListLi = document.createElement('li');
                 tuijianListLi.classList.add('coverList');
-                tuijianListLi.innerHTML = `<a href="#">`+
+                tuijianListLi.innerHTML = `<a href="./album?id=${value.id}">`+
                     `<img src="${value.cover}" alt="" class="cover">`+
                     `<p class="describe">${value.describe}</p></a>`;
                 self.tujianMusic.appendChild(tuijianListLi);

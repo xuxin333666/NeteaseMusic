@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: unset;
+    color: #666;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.loading {
+    display: block;
+    width: 10vw;
+    margin: 10vw auto;
+}
+.loading.action {
+    display: none;
+}
+header {
+    position: relative;
+    display: -webkit-flex;
+    padding: 8vw 5vw;
+    padding-right: 3vw;
+}
+header>.bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+header>.coverCt {
+    position: relative;
+}
+header>.coverCt>.cover {
+    width: 33.6vw;
+    height: 33.6vw;
+}
+header>.coverCt:before {
+    position: absolute;
+    left: 0;
+    top: 2.5vw;
+    content: "歌单";
+    line-height: 1;
+    padding: 0.6vw 2.5vw;
+    border-radius: 0 50vw 50vw 0;
+    background: rgba(217,48,48,.8);
+    font-size: 2.4vw;
+    color: #fefefe;
+}
+header>.content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 4vw;
+    padding-top: 3vw;
+    padding-right: 0;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+header>.content>.title {
+    color: #fefefe;
+    font-size: 4.5vw;
+}
+header>.content>.portraitCt {
+    display: -webkit-flex;
+    align-content: center;
+    padding-bottom: 4vw; 
+}
+header>.content>.portraitCt>.portrait {
+    border-radius: 50%;
+    width: 7.5vw;
+    height: 7.5vw;
+}
+header>.content>.portraitCt>.name {
+    color: #bdb0b0;
+    font-size: 3.7vw;
+    margin-left: 2vw;
+    line-height: 7.5vw;
+}
+main>.abstractCt {
+    padding: 0 5vw;
+}
+main>.abstractCt>.tagCt {
+    display: -webkit-flex;
+    align-items: center;
+    padding-top: 2vw;
+    font-size: 3.7vw;
+}
+main>.abstractCt>.tagCt>.tag {
+    margin-left: 2vw;
+    padding: 0.6vw 2vw;
+    border-radius: 50vw;
+    font-size: 3.2vw;
+    border: 0.27vw solid #cccccc61;
+}
+main>.abstractCt>p {
+    margin-top: 3vw;
+    line-height: 1.3;
+    font-size:3.8vw;
+    height: 14.60vw; 
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+main>.abstractCt>p.action {
+    height: unset;
+    -webkit-line-clamp: unset;
+}
+main>.abstractCt>.showMore {
+    text-align: right;
+}
+main>.abstractCt>.showMore.action {
+    transform: rotate(180deg);
+    text-align: left;
+}
+.songList>.listName {
+    padding: 1vw 3vw;
+    background: #eeeff0;
+}
+.songList>.song {
+    display: -webkit-flex;
+    align-items: center;
+    position: relative;
+    font-size: 4.5vw;
+    padding: 0 2.77vw;
+}
+.songList>.song>.Number {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    font-size: 4.2vw;
+    padding-right: 2.77vw;
+    color: #888;
+}
+.songList>.song>a {
+    flex: 1;
+    padding: 1vw 0;
+    border-bottom: 0.27vw solid #f1f1f2;
+}
+.songList>.song .describe {
+    display: -webkit-flex;
+    align-items: center;
+    margin-right: 15vw;
+    line-height: 6vw;
+    font-size: 3.2vw;
+    color: #888;
+}
+.songList>.song .describe>.SQ {
+    display: block;
+    margin-top: 0.5vw;
+    width: 5vw;
+    height: 2.5vw;
+    background: url('../img/SQ.png') no-repeat;
+    background-size: contain;
+}
+.songList>.song .play {
+    width: 6vw;
+    height: 6vw;
+    background: url('../img/start.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+main>.blank {
+    height: 20vw;
+}
+footer {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    padding: 2vw 0;
+    background: white;
+}
+footer>a.button {
+    margin: 0 auto;
+    display: -webkit-flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 83.5vw;
+    font-size: 4.3vw;
+    border-radius: 26.67vw;
+    padding: 2vw 12vw;
+    background:  #d33a31;
+    color: white;
+}
+footer>a.button:before {
+    margin-right: 1vw;
+    font-size: 6vw;
+}

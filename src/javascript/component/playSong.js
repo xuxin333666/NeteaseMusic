@@ -18,25 +18,20 @@ define(['jquery','lib/ajax'],function($,Ajax){
     }
     PlaySong.prototype = {
         parseLrc: function(ret){
-            var self = this;
             this.lrcArr = ret.split('↵')
             this.reg = /^\[(.+)\](.*)$/;
-            this.arr = this.lrcArr.map(function(value){
+            this.arr = [];
+            for (let i = 0; i <  this.lrcArr.length; i++) {
                 var lrcObj = {};
-                if( self.reg.exec(value)!== null){
+                if( this.reg.exec(this.lrcArr[i])!== null){
                     lrcObj= {
-                        time: self.reg.exec(value)[1],
-                        words: self.reg.exec(value)[2]
+                        time: this.reg.exec(this.lrcArr[i])[1],
+                        words: this.reg.exec(this.lrcArr[i])[2]
                     };
-                }else{
-                    lrcObj = {
-                        time: '----------',
-                        words:'----------'
-                    }
-                }
-                return lrcObj;
-            })
-            self.render(this.arr);
+                    this.arr.push(lrcObj);
+                }               
+            }
+            this.render(this.arr);
         },
         render: function(arr){
             var self = this;
@@ -86,7 +81,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             ret.forEach(function(value,index){
                 if(arr.indexOf(index+1)!==-1){
                     var other = document.createElement('li');
-                    other.innerHTML = `<a href="#"><img src="${value.cover}" alt=""><h5 class="overflow">${value.describe}</h5><p class="overflow">${value.additional}</p></a>`;
+                    other.innerHTML = `<a href="./album?id=${index}"><img src="${value.cover}" alt=""><h5 class="overflow">${value.describe}</h5><p class="overflow">${value.additional}</p></a>`;
                     self.otherLink.appendChild(other);                   
                 }
             })

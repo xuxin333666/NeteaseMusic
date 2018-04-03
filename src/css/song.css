@@ -45,6 +45,7 @@ a {
 }
 #logo {
     position: absolute;
+    left: 0;
     margin: 3vw;
     width: 30vw;
     z-index: 1;
@@ -228,6 +229,7 @@ div.bgimg {
 }
 .wrapper>.otherLink>li p {
     font-size: 3.2vw;
+    height: 3.2vw;
     color: #ccc;
 }
 .otherMusicCt {
