@@ -252,17 +252,20 @@ footer>.copyright {
     border: none;
     outline: none;
     background: rgb(234, 234, 234);
-    color: rgb(234, 234, 234)
 }
 .searchHeader>#search:focus {
     color: black;
 }
-.searchHeader>.iconfont.icon-closebg:before {
+.searchHeader>.iconfont.closeIcon:before {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 2vw;
-    color: rgba(0,0,0,0.3)
+    color: rgba(0,0,0,0.3);
+    display: none;
+}
+.searchHeader>.iconfont.closeIcon.action:before {
+    display: block;
 }
 .searchMain {
     padding: 2.1vw 2vw;
@@ -314,4 +317,34 @@ footer>.copyright {
     right: 4.3vw;
     color: #888;
     content: 'X';
+}
+.searchCt>.resultCt {
+    display: none;
+}
+.searchCt>.resultCt>.keyWord {
+    padding: 4vw 2.5vw;
+    font-size: 3.8vw;
+    color: #507daf;
+    border-bottom: solid 0.27vw #cccccc61;
+    border-top: solid 0.27vw #cccccc61;
+}
+.resultCt>.results .iconfont {
+    position: relative;
+    padding-left: 2.5vw;
+    width: 100%;
+    display: -webkit-flex;
+}
+.resultCt>.results .iconfont:before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+.resultCt>.results .iconfont>.result {
+    margin-left: 8vw;
+    padding: 4vw 0;
+    border-bottom: 0.27vw solid #cccccc61;
+    flex: 1;
+    color: black;
+    font-size: 3.77vw;
 }

@@ -1,4 +1,4 @@
-define(['lib/ajax','renderIndex',],function(ajax,render){
+define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     var wrapper = document.querySelector('.wrapper');
     var tabCt = document.querySelector('.tabCt');
     var tab = document.querySelectorAll('.tab');
@@ -9,6 +9,12 @@ define(['lib/ajax','renderIndex',],function(ajax,render){
     var hotMusicCt = document.querySelector('.hotMusicCt');
     var searchCt = document.querySelector('.searchCt');
     var ranking = document.querySelector('.ranking');
+    var searchHeader = document.querySelector('.searchHeader');
+    var idSearch = document.querySelector('#search');
+    var closeSearch = document.querySelector('.searchHeader>.closeIcon')
+    var searchMain = document.querySelector('.searchMain');
+    var resultCt = document.querySelector('.resultCt');
+    var keyWord = document.querySelector('.keyWord');
     function PubSub(){
         this.events = {};
     }
@@ -91,10 +97,39 @@ define(['lib/ajax','renderIndex',],function(ajax,render){
     p1.on('n3',[function(){
         search.children[0].classList.add('action');
         searchCt.style.display = 'block';
-        if(searchCt.getAttribute('data-status')){
+        if(!searchCt.getAttribute('data-status')){
+            ajax.on({
+                url: './hotSearch.json',
+                success: function(ret){
+                    s1 = new Search(ret);
+                    searchCt.setAttribute('data-status','downloaded')
+                },
+                error: function(){
+                    alert('网络错误');
+                }
+            })
         }
     }]);
+    p1.on('closeIconClick',[function(){
+        idSearch.value = '';
+        closeSearch.classList.remove('action');
+        searchMain.style.display = 'block';
+        resultCt.style.display = 'none';
+    }])
     tabCt.addEventListener('click',function(e){
         p1.fire('clickTab',e.target.getAttribute('data-number'));
+    })
+    closeSearch.addEventListener('click',function(){
+        p1.fire('closeIconClick');
+    })
+    idSearch.addEventListener('input',function(){
+        searchMain.style.display = 'none';
+        closeSearch.classList.add('action');
+        resultCt.style.display = 'block';
+        if(idSearch.value.length){
+            keyWord.innerText = `搜索"${idSearch.value}"`
+        }else{
+            p1.fire('closeIconClick');
+        }
     })
 })
