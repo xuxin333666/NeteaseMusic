@@ -122,6 +122,9 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     closeSearch.addEventListener('click',function(){
         p1.fire('closeIconClick');
     })
+    idSearch.addEventListener('focus',function(e){
+        e.preventDefault();
+    })
     idSearch.addEventListener('input',function(){
         searchMain.style.display = 'none';
         closeSearch.classList.add('action');
