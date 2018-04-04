@@ -23,6 +23,7 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     var resultCt = _('.resultCt');
     var keyWord = _('.keyWord');
     var history = _('.history');
+    var showMore = _('.showMore');
     // 定义搜索节流函数定时器
     var time1 = null;
     // 定义发布订阅构造函数及生成p1发布订阅对象
@@ -68,6 +69,7 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     ajax.on({
         url: './songList.json',
         success: function(ret){
+            songListData = ret;
             if(!tuijianCt.getAttribute('data-songList')){
                 r1 = new render(ret);
                 r1.songList();

@@ -1,12 +1,20 @@
 define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,PlaySong){
+    // 定义获取DOM节点函数及获取各DOM
+    function _(e){
+        return document.querySelector(e);
+    }
+    function _A(e){
+        return document.querySelectorAll(e);
+    }
     var p1 = null;
-    var discCt = document.querySelector('.discContainer')
-    var start = document.querySelector('.disc.start')
-    var disc = document.querySelectorAll('.disc')
-    var pointer = document.querySelector('.pointer')
+    var discCt = _('.discContainer')
+    var start = _('.disc.start')
+    var disc = _A('.disc')
+    var pointer = _('.pointer')
+    // 获取页面get信息
     select = new Select(window.location.search,/id=([^&]+)/);
     var songId = select.filter();
-    // 发布订阅
+    // 发布订阅及生成songPS实例
     function PubSub(){
         this.events = {};
     }
@@ -45,6 +53,7 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
         }
     } 
     var songPS = new PubSub(); 
+    // 在songPS绑定获取歌曲内容，播放，暂停事件及直接触发获取歌曲内容
     songPS.on('getSong',[function(){
         Ajax.on({
             url: './songList.json',
@@ -98,16 +107,18 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
             pointer.classList.add('pause')
         }
     ])
-    songPS.fire('getSong');  
-    discCt.addEventListener('click',function(){
-        songPS.fire('pause');  
-    })
+    songPS.fire('getSong');
+    // 当点击播放按钮时触发播放事件
     start.addEventListener('click',function(e){
         e.stopPropagation()
         songPS.fire('play');  
         p1.audioNode.addEventListener('ended',function(){
             songPS.fire('pause'); 
         })
+    })
+    // 当点击光碟时触发暂停事件  
+    discCt.addEventListener('click',function(){
+        songPS.fire('pause');  
     })
     return PubSub;
 })

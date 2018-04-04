@@ -3,6 +3,7 @@ define(function(){
         this.ret = ret || '';
     }
     Render.prototype= {
+        // 渲染歌单歌曲列表
         songList: function(callback){
             var self = this;
             setTimeout(function(){
@@ -20,6 +21,7 @@ define(function(){
                 callback();
             },1000)
         },
+        // 渲染歌单封面、背景等
         albumHeader: function(n){
             var ret = this.ret[n];
             document.querySelector('header').style.background = `url(${ret.bgimg}) no-repeat`;

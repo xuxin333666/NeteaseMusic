@@ -17,6 +17,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
         this.parseLrc(this.lyric);
     }
     PlaySong.prototype = {
+        // 解析歌词为一个含有时间、歌词属性对象的数组
         parseLrc: function(ret){
             this.lrcArr = ret.split('↵')
             this.reg = /^\[(.+)\](.*)$/;
@@ -33,6 +34,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             }
             this.render(this.arr);
         },
+        // 将解析的歌词渲染成P标签
         render: function(arr){
             var self = this;
             var lyricsCt = document.querySelector('.lyricsCt');
@@ -49,6 +51,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
                 lyricsCt.appendChild(lrcP);
             }
         },
+        // 渲染“喜欢这首歌的人也听”歌曲列表
         renderOtherMusic: function(ret){
             var self = this;
             ret.forEach(function(value){
@@ -67,6 +70,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             })
             this.musicLoading.classList.add('action');   
         },
+        // 渲染“含有这首歌的歌单”列表
         renderOther: function(ret){
             var self = this;
             var arr = [1,2,3,4,5,6];
@@ -87,6 +91,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             })
             this.linkLoading.classList.add('action');   
         },
+        // 将播放时间转换成00:00.00形式
         playlyrics: function(){
             var self = this;
             this.lyricsCt = document.querySelector('.lyricsCt');
@@ -103,6 +108,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
                self.lyricsSelect(timeStr);              
             },300)
         },
+        // 根据播放时间选择出相应的歌词P标签
         lyricsSelect: function(time){
             var self = this;
             for (let i = 0; i < self.lyrics.length; i++) {
@@ -123,6 +129,7 @@ define(['jquery','lib/ajax'],function($,Ajax){
             }
             
         },
+        // 将选择出的P标签滚动起来
         lyricsScroll: function(now){
             var distance = now.offsetTop - this.lyrics[1].offsetTop;
             if(distance > 0){
@@ -133,13 +140,16 @@ define(['jquery','lib/ajax'],function($,Ajax){
                 // this.lyricsCt.style.transform = `translateY(-.1px)`;
             }
         },
+        // 暂停歌词滚动计时器
         pauselyrics: function(){
             var self = this;
             clearInterval(self.setTimeOut);
         },
+        // 音频暂停
         audioPause: function(){
             this.audioNode.pause();
         },
+        // 音频播放
         audioPlay: function(){
             this.audioNode.play();
         }

@@ -8,6 +8,7 @@ define(function(){
             this.success = obj.success || function(){};
             this.error = obj.error || function(){alert('网络错误')};
             this.urlStr = '';
+            // 拼装搜索内容
             for (const key in this.data) {
                 if (this.data.hasOwnProperty(key)) {
                     this.urlStr += key + '=' + this.data[key] + '&';                
@@ -15,7 +16,7 @@ define(function(){
             }
             this.open();
         }
-        Ajax.prototype = {
+        Ajax.prototype = {       
             open: function(){
                 this.xhr = new XMLHttpRequest();
                 if(this.method === 'get'){

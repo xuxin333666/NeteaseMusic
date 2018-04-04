@@ -7,6 +7,7 @@ define(function(){
         this.tuijianLoading = document.querySelector('.tuijian.loading');
     }
     Render.prototype = {
+        // 渲染最新歌曲列表
         songList: function(){
             var self = this;
             this.ret.forEach(function(value){
@@ -20,6 +21,7 @@ define(function(){
             })
             this.loading.classList.add('action')
         },
+        // 渲染推荐歌单列表
         tuijianList: function(){
             var self = this;
             this.ret.forEach(function(value){
@@ -32,26 +34,32 @@ define(function(){
             })
             this.tuijianLoading.classList.add('action')
         },
+        // 渲染热歌榜
         getHotMusic: function(){
             var self = this;
+            var a = document.querySelector('.showMore');
             document.querySelector('.update').innerHTML = '更新日期：' + this.getUpdateTime();
             setTimeout(function(){
                 var ranking = document.querySelector('.ranking')
-                var str = '';
+                document.querySelector('.hotMusic.loading').classList.add('action');
                 self.ret.forEach(function(value,index){
                     index = (index+1)<10?'0'+(index+1):index+1;
-                    str += `<li class="rankNumber"><div class="Number">${index}</div><a href="./song.html?id=${value.id}">`+
+                    var li = document.createElement('li');
+                    li.classList.add('rankNumber');
+                    li.innerHTML = 
+                    `<div class="Number">${index}</div><a href="./song.html?id=${value.id}">`+
                     `<h4 class="songName">${value.title}</h4>`+
                     `<p class="describe"><span class="SQ"></span>${value.author} - ${value.title}</p>`+
-                    `<a href="./song.html?id=${value.id}" class="play"></a></a></li>`;
+                    `<a href="./song.html?id=${value.id}" class="play"></a></a>`;
+                    ranking.appendChild(li);
                 });
-                ranking.innerHTML = str;
                 for (let i = 0; i < 3; i++) {
                     document.querySelectorAll('.rankNumber>.Number')[i].classList.add('firstThree');         
                 }
                 document.querySelector('.hotMusicCt').setAttribute('data-status','downloaded');
             },1000)
         },
+        // 渲染热歌榜更新时间
         getUpdateTime: function(){
             var month = (new Date().getMonth()+1 <10)? '0' + (new Date().getMonth()+1) : (new Date().getMonth()+1);
             var day = (new Date().getDay()+1 <10)? '0' + (new Date().getDay()+1 ): (new Date().getDay()+1);

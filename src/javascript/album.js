@@ -34,6 +34,7 @@ define(['selectKeyword','lib/ajax','renderAlbum'],function(Select,ajax,render){
             alert('网络错误');
         }
     })
+    // 设置“点击简介下拉菜单，获得更多简介”的功能
     showMore.addEventListener('click',function(){
         showMore.classList.toggle('action');
         abstract.classList.toggle('action');

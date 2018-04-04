@@ -10,6 +10,7 @@ define(['lib/ajax'],function(ajax){
         },1000)
     }
     Search.prototype = {
+        // 渲染热搜
         renderhotSearch: function(value){
             var hotSearch = document.querySelector('.hotSearch');
             var hotSearchChild = document.createElement('li');
@@ -19,6 +20,7 @@ define(['lib/ajax'],function(ajax){
             hotSearch.appendChild(hotSearchChild);
             loading.classList.add('action');
         },
+        // 获取函数节流后的搜索关键字
         getSearchResult: function(val){
             var self = this;
             var getSuccess = false;
@@ -42,6 +44,7 @@ define(['lib/ajax'],function(ajax){
                 }
             })
         },
+        // 渲染出搜索后的页面
         renderResult: function(a){
             var li = document.createElement('li');
             li.classList.add('result');
@@ -58,6 +61,7 @@ define(['lib/ajax'],function(ajax){
             }
             this.results.appendChild(li);
         },
+        // 渲染搜索历史
         renderHistory: function(val){
             if(val.length === 0){
                 return;
