@@ -132,14 +132,14 @@ header>.button {
     margin-top: 0.5vw;
     width: 5vw;
     height: 2.5vw;
-    background: url('../img/SQ.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/SQ.png') no-repeat;
     background-size: contain;
 }
 .latestCt>.latest .play,
 .ranking>.rankNumber .play {
     width: 6vw;
     height: 6vw;
-    background: url('../img/start.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/start.png') no-repeat;
     background-size: contain;
     position: absolute;
     right: 3vw;
@@ -148,7 +148,7 @@ header>.button {
 }
 footer {
     text-align: center;
-    background: url('../img/index-bg.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/index-bg.png') no-repeat;
     background-size: cover;
 }
 footer>.logosvg {
@@ -176,7 +176,7 @@ footer>.copyright {
 }
 .hotMusicHeader {
     position: relative;
-    background: url('../img/hot_music_bg_2x.jpg') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/hot_music_bg_2x.jpg') no-repeat;
     background-size: cover;
     padding: 5.5vw;
     z-index: -2;
@@ -194,7 +194,7 @@ footer>.copyright {
 .hotMusicHeader>.hotMusicBg1 {
     width: 38vw;
     height: 17.8vw;
-    background: url('../img/hotMusicBg1.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/hotMusicBg1.png') no-repeat;
     background-size: contain;
 }
 .hotMusicHeader>.update {

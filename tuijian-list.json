@@ -1,42 +1,42 @@
 [{
     "id": 0,
-    "cover": "src/img/tuijian-cover1.jpg",
-    "bgimg": "src/img/tuijian-cover1-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover1.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover1-bg.jpg",
     "describe": "熬夜和想你，我都该戒掉了",
     "additional": "简介：命运似乎是一个轮回，在一次次的偶然下，平行线交叉，再平行，故事始终有然后，可后来的我们，都学会如何去爱了吗？<br>如果当时你没走，后来的我们会不会不一样。或许，我们每个人都想回到故事最开始的地方。<br>特别说明：歌名连着读是在诉说一个故事."
 },
 {
     "id": 1,
-    "cover": "src/img/tuijian-cover2.jpg",
-    "bgimg": "src/img/tuijian-cover2-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover2.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover2-bg.jpg",
     "describe": "「华语男声」你来这走一遭 奇迹般万物生长",
     "additional": "简介：这里荒芜寸草不生<br>后来你来这走了一遭<br>奇迹般万物生长<br>这里是我的心<br>如果提前知道会有一个人<br>像春日里的风 温柔无比" 
 },
 {
     "id": 2,
-    "cover": "src/img/tuijian-cover3.jpg",
-    "bgimg": "src/img/tuijian-cover3-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover3.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover3-bg.jpg",
     "describe": "节奏带感且深邃性感 ️️这才系Deep House呀",
     "additional": "让我们一起摇摆起来~优质华语新歌，网易云音乐&台湾KKBOX联合推荐！每周二精选推荐。"
 },
 {
     "id": 3,
-    "cover": "src/img/tuijian-cover4.jpg",
-    "bgimg": "src/img/tuijian-cover4-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover4.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover4-bg.jpg",
     "describe": "「新世纪」如沐朝阳的温暖与诗意",
     "additional": "简介：这是一张以“朝阳”为主题的新世纪（New Age）音乐歌单，选取的是在新世纪艺术家专辑中，以描绘“朝阳”为主题或相近的作品。听着这些音乐，如同在晨光熹微之时，看着太阳逐渐从地平线升起，慢慢感受和煦的阳光照耀在身上时，给心灵带来的温暖和慰藉。愿这些美好的音乐，伴随您开启新的一天。<br>新世纪（New Age）音乐是一种以给予听者灵感启发、放松和乐观为目的的音乐风格。在使用的乐器上，新世纪音乐既可以是由含笛、钢琴、吉他等民族乐器或者是西洋乐器演奏的，也可以是由电子乐器所演奏的。比起其他由使用的乐器和演奏形式判定的风格，新世纪音乐更像是由其致力为听众带来的影响和感受来定义的。它常常被用于阅读、冥想、瑜伽和按摩等，以期创造一种祥和的氛围和精神上的平静。"
 },
 {
     "id": 4,
-    "cover": "src/img/tuijian-cover5.jpg",
-    "bgimg": "src/img/tuijian-cover5-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover5.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover5-bg.jpg",
     "describe": "台湾偶像剧黄金年代|记忆是阵阵花香",
     "additional": "简介：单主看的第一部台湾偶像剧是《流星花园》，最后一部是《我可能不会爱你》，从2001年到2011年，算是见证了台湾偶像剧最黄金的年代。<br>这个时期的偶像剧，盛产偶像明星，除了故事吸引人，影视原声带都基本上都是量剧订做，歌曲结合剧情，衬托角色心境，制作精良，让人回味无穷。<br>可能那个年代再也回不来了，就让这一切都留在记忆中吧！"
 },
 {
     "id": 5,
-    "cover": "src/img/tuijian-cover6.jpg",
-    "bgimg": "src/img/tuijian-cover6-bg.jpg",
+    "cover": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover6.jpg",
+    "bgimg": "http://p6o0v7chj.bkt.clouddn.com/tuijian-cover6-bg.jpg",
     "describe": "「古风」藏在诗词里的歌名",
     "additional": "简介：•知我者《谓我》心忧，不知我者谓我《何求》<br>•《山有木兮》木有枝，心悦君兮《君不知》<br>•此情《无计》可消除，才下眉头，却上心头<br>•何处合成愁？离人《心上秋》"
 }]

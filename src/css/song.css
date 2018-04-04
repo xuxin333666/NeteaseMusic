@@ -132,7 +132,7 @@ div.bgimg {
     height: 14.93vw;
     margin-top: -7.47vw;
     margin-left: -7.47vw;
-    background: url('../img/start.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/start.png') no-repeat;
     background-size: contain;
     animation: unset;
     display: none;
@@ -256,7 +256,7 @@ div.bgimg {
     float: right;
     width: 6.5vw;
     height: 6.5vw;
-    background: url('../img/start.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/start.png') no-repeat;
     background-size: contain;
 }
 .blank {

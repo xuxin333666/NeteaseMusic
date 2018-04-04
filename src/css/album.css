@@ -162,13 +162,13 @@ main>.abstractCt>.showMore.action {
     margin-top: 0.5vw;
     width: 5vw;
     height: 2.5vw;
-    background: url('../img/SQ.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/SQ.png') no-repeat;
     background-size: contain;
 }
 .songList>.song .play {
     width: 6vw;
     height: 6vw;
-    background: url('../img/start.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/SQ.png') no-repeat;
     background-size: contain;
     position: absolute;
     right: 3vw;
