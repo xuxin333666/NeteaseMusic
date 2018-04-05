@@ -168,7 +168,7 @@ main>.abstractCt>.showMore.action {
 .songList>.song .play {
     width: 6vw;
     height: 6vw;
-    background: url('http://p6o0v7chj.bkt.clouddn.com/SQ.png') no-repeat;
+    background: url('http://p6o0v7chj.bkt.clouddn.com/start.png') no-repeat;
     background-size: contain;
     position: absolute;
     right: 3vw;
