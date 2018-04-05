@@ -71,7 +71,7 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
     songPS.on('play',[
         function(){
             disc.forEach(function(value){
-                value.classList.remove('paused');
+                // value.classList.remove('paused');
                 value.classList.remove('pause');
             })
         },
@@ -92,11 +92,13 @@ define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,P
         },
         function(){
             disc.forEach(function(value){
+                /*
                 if(/(iPhone)|(Android)|(IPad)/i.test(window.navigator.userAgent)){
                     value.classList.add('paused')
                 }else{
+                    */
                     value.classList.add('pause');
-                }
+                // }
             })
         },
         function(){
