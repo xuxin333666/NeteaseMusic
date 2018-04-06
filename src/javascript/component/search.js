@@ -74,7 +74,7 @@ define(['lib/ajax'],function(ajax){
                 this.history.insertBefore(li,document.querySelectorAll('.history>.child')[0]);
             }else{
                 this.history.appendChild(li);
-            }       
+            }
         }
     }
     return Search;
