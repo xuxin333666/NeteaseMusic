@@ -26,6 +26,8 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     var showMore = _('.showMore');
     // 定义搜索节流函数定时器
     var time1 = null;
+    // 定义本地历史搜索缓存数组
+    var historyArr = JSON.parse(window.localStorage.getItem('myHistory')) || [];
     // 定义发布订阅构造函数及生成p1发布订阅对象
     function PubSub(){
         this.events = {};
@@ -163,12 +165,21 @@ define(['lib/ajax','renderIndex','search'],function(ajax,render,Search){
     })
     // 在p1上绑定搜索框结果显示事件
     p1.on('search',[function(){
+        historyArr.push(idSearch.value);
+        window.localStorage.setItem('myHistory',JSON.stringify(historyArr));
+        console.log(historyArr,JSON.stringify(historyArr))
         s1.getSearchResult(idSearch.value);
     }])
     // 绑定查找历史交互功能及监听触发
     history.addEventListener('click',function(e){
         if(e.target.getAttribute('data-style')){
             e.target.parentNode.parentNode.remove()
+            historyArr = historyArr.filter(value=>{
+                if(value !== e.target.parentNode.getAttribute('data-value')){
+                    return value;
+                }
+            })
+            window.localStorage.setItem('myHistory',JSON.stringify(historyArr));
             return;
         }
         idSearch.value = e.target.getAttribute('data-value');

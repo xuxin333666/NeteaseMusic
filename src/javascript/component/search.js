@@ -3,6 +3,10 @@ define(['lib/ajax'],function(ajax){
         this.ret = ret ||'';
         this.results = document.querySelector('.resultCt>.results');
         this.history = document.querySelector('.history');
+        this.historyArr = JSON.parse(window.localStorage.getItem('myHistory')) || [];
+        this.historyArr.forEach(value => {
+            this.renderHistory(value)
+        })
         setTimeout(arguments => {
             ret.forEach(value => {
                 this.renderhotSearch(value);
