@@ -1,5 +1,5 @@
 # NeteaseMusic
-##### 预览： https://xuxin333666.github.io/NeteaseMusic/
+### 预览： https://xuxin333666.github.io/NeteaseMusic/
 *****
 ### 简要描述
 - 本项目为仿制移动端网易云音乐网页，项目可分为首页，热搜榜，用户搜索，歌单列表，歌曲播放等5个页面。
