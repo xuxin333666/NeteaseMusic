@@ -1,5 +1,4 @@
 define(['jquery','selectKeyword','lib/ajax','playSong'],function($,Select,Ajax,PlaySong){
-    alert(window.navigator.appVersion)
     // 定义获取DOM节点函数及获取各DOM
     function _(e){
         return document.querySelector(e);
